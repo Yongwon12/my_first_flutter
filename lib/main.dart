@@ -54,10 +54,10 @@ class ListPage extends StatelessWidget {
       ),
     );
   }
-
+// 링크를 클릭했을때 이동
   void _launchURL(Uri url) async {
-    if (await canLaunch(url.toString())) {
-      await launch(url.toString());
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     } else {
       throw 'Could not launch $url';
     }

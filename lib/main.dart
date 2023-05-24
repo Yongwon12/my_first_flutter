@@ -1,65 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'second.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter 화면 전환 예제',
       theme: ThemeData(
         primarySwatch: Colors.grey,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const ListPage(),
+      home: const MyHomePage(),
     );
   }
 }
 
-class ListPage extends StatelessWidget {
-  const ListPage({Key? key}) : super(key: key);
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('유튜브음악 링크페이지'),
+        title: const Text('Flutter 화면 전환 예제'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            Card(
-              child: ListTile(
-                leading: Image.asset(
-                  '/Users/gim-yong-won/Desktop/my_first_flutter/image/ballerino.jpeg', // Image path for YouTube logo
-                  width: 48,
-                  height: 48,
-                ),
-                title: const Text('Ballerino - MR'),
-                subtitle: const Text('눌러서 이동'),
-                onTap: () {
-                  _launchURL(Uri.parse('https://www.youtube.com/watch?v=6cDlodq4fiM'));
-                },
-              ),
-            ),
-          ],
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('유튜브 음악 링크'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SecondPage()),
+            );
+          },
         ),
-
       ),
     );
-  }
-// 링크를 클릭했을때 이동
-  void _launchURL(Uri url) async {
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 }

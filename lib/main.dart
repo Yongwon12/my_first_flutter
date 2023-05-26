@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'second.dart';
+import 'board.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter 화면 전환 예제',
+      title: 'Flutter Test',
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
@@ -21,23 +22,37 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter 화면 전환 예제'),
+        title: const Text('Flutter Test'),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: const Text('유튜브 음악 링크'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SecondPage()),
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: const Text('유튜브 음악 링크'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: const Text('게시판 페이지'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const BoardPage()),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

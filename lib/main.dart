@@ -35,7 +35,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              child: const Text('유튜브 음악 링크'),
+              child: const Text('최애 음악'),
               onPressed: () {
                 Navigator.push(
                   context,

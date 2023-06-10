@@ -35,7 +35,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              child: const Text('즐겨듣는 음악'),
+              child: const Text('괜찮은 노래'),
               onPressed: () {
                 Navigator.push(
                   context,

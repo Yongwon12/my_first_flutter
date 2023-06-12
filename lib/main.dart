@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'second.dart';
 import 'board.dart';
-
+// 테스트
 void main() {
   runApp(const MyApp());
 }
